@@ -1,0 +1,5 @@
+create table `lookup_results` (`id` int unsigned not null auto_increment primary key, `city` varchar(255) not null, `state_id` int unsigned not null, `result` json null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_0900_ai_ci';
+alter table `lookup_results` add index `lookup_results_city_state_id_index`(`city`, `state_id`);
+
+create table `states` (`id` int unsigned not null auto_increment primary key, `abbreviation` varchar(255) not null) default character set utf8mb4 collate 'utf8mb4_0900_ai_ci';
+insert into `states` (`abbreviation`) values ('AL'), ('AK'), ('AS'), ('AZ'), ('AR'), ('CA'), ('CO'), ('CT'), ('DE'), ('DC'), ('FL'), ('GA'), ('GU'), ('HI'), ('ID'), ('IL'), ('IN'), ('IA'), ('KS'), ('KY'), ('LA'), ('ME'), ('MD'), ('MA'), ('MI'), ('MN'), ('MS'), ('MO'), ('MT'), ('NE'), ('NV'), ('NH'), ('NJ'), ('NM'), ('NY'), ('NC'), ('ND'), ('MP'), ('OH'), ('OK'), ('OR'), ('PA'), ('PR'), ('RI'), ('SC'), ('SD'), ('TN'), ('TX'), ('UT'), ('VT'), ('VA'), ('VI'), ('WA'), ('WV'), ('WI'), ('WY');
