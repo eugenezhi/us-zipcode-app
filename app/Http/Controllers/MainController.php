@@ -12,6 +12,10 @@ use Illuminate\View\View;
 
 class MainController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     */
     public function __construct(
         protected ZipcodeApiService $zipcodeApiService,
         protected LookupResultService $lookupResultService
