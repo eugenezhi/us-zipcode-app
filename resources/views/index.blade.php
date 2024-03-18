@@ -25,7 +25,7 @@
                         <div class="input-group">
                             <input name="city" type="text" class="form-control" placeholder="City">
                             <select name="state_id" class="form-select">
-                                <option selected>State</option>
+                                <option selected disabled>State</option>
                                 @foreach( $states as $state)
                                     <option value="{{ $state['id'] }}">{{ $state['abbreviation'] }}</option>
                                 @endforeach
