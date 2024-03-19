@@ -6,6 +6,7 @@ use App\Models\State;
 use App\Services\LookupResultService;
 use App\Services\ZipcodeApiService;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
@@ -31,16 +32,27 @@ class MainController extends Controller
 
     /**
      * @param Request $request
-     * @return Factory|View
+     * @return JsonResponse
      * @throws ValidationException
      */
-    public function searchZipcodes(Request $request): Factory|View
+    public function searchZipcodes(Request $request): JsonResponse
     {
         $attributes = $this->validate($request, [
             'city' => 'required|string',
             'state_id' => 'required|int'
         ]);
 
+        $result = $this->searchAndStoreZipcodes($attributes);
+
+        return response()->json($result);
+    }
+
+    /**
+     * @param array $attributes
+     * @return array
+     */
+    private function searchAndStoreZipcodes(array $attributes): array
+    {
         $dbResult = true;
         $result = $this->lookupResultService->getLastByAttributes($attributes);
         if ($result === null) {
@@ -50,6 +62,6 @@ class MainController extends Controller
             $result = $this->lookupResultService->create([...$attributes, ...['result' => $apiResult]]);
         }
 
-        return view('index', ['states' => State::all(), 'result' => $result, 'dbResult' => $dbResult]);
+        return ['result' => $result, 'dbResult' => $dbResult];
     }
 }

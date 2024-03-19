@@ -13,6 +13,11 @@ When displaying the result, shows the user whether the result came from the API 
 
 #### [Live demo](https://us-zipcode-app.42web.io)
 
+### Technologies used
+- PHP ([Laravel](https://github.com/laravel/laravel))
+- JS ([React](https://github.com/facebook/react)), AJAX
+- Smarty [US ZIP Code API](https://www.smarty.com/docs/cloud/us-zipcode-api)
+
 ### Installation
 - Clone the project
 - Run in the project root folder:
