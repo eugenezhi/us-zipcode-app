@@ -11,7 +11,7 @@ If > 60 minutes, performs the search again, saving the result.
 If <= 60 minutes, displays the saved result without calling the API again.  
 When displaying the result, shows the user whether the result came from the API directly, or from the database (with a timestamp of when the data was originally saved).  
 
-#### [Live demo](https://us-zipcode-app.42web.io)
+#### [Live demo](http://react-us-zipcode-app.42web.io)
 
 ### Technologies used
 - PHP ([Laravel](https://github.com/laravel/laravel))
